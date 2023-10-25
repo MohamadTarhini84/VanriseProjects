@@ -1,0 +1,5 @@
+<select class="form-control" ng-model="state.selected" 
+        ng-options="item['value'] as item['Description'] for item in items" 
+        ng-disabled="state.disabled" ng-change="change()">
+    <option value="" disabled>Select Currency</option>
+</select>

@@ -1,0 +1,5 @@
+<select class="form-control" ng-model="selected" 
+        ng-options="item['depID'] as item['depName'] for item in items" 
+        ng-disabled="isDisabled">
+    <option value="" disabled>Select Department</option>
+</select>

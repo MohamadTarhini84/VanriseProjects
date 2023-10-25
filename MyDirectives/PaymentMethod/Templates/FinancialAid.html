@@ -1,0 +1,13 @@
+<div>
+    <div style="display: flex; flex-direction: column; width:100%">
+        <select class="form-control" style="width:100%" ng-model="scopeModel.type">
+            <option value="" disabled>Choose Aid Type</option>
+            <option value="percentage">Percentage</option>
+            <option value="fixedamount">Fixed Amount</option>
+        </select> <br>
+        <input class="form-control" ng-model="scopeModel.name" placeholder="Enter Financer Name"/> <br />
+        <percentage-aid ng-if="scopeModel.type=='percentage'" 
+            on-ready="scopeModel.onPercentageReady"></percentage-aid>
+        <fixed-aid ng-if="scopeModel.type=='fixedamount'" on-ready="scopeModel.onFixedReady"></fixed-aid>
+    </div>
+</div>

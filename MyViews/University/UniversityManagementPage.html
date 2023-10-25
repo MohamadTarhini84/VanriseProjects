@@ -1,0 +1,57 @@
+<div class="row" style="margin:30px">
+    <div class="col-md-3 col-sm-2"></div>
+    <div class="col-md-6 col-sm-8">
+        <div style="display:flex; justify-content:space-between; gap:20px; margin-bottom: 20px;">
+            <input type="text" placeholder="Search by Name" ng-model="search_input" class="form-control" style="display: inline; width: 60%;" />
+            <div>
+                <button ng-click="scopeModel.loadData()" type="button" class="btn btn-primary">Search</button>
+                <button data-open-modal ng-click="scopeModel.AddUniversity()" type="button" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th ng-repeat="item in scopeModel.items" style="text-align: center !important;">{{item}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat-start="university in scopeModel.pageElements" ng-click="scopeModel.toggle(university)">
+                    <td>{{ university.uniID }}</td>
+                    <td>{{ university.uniName }}</td>
+                    <td style="z-index:1">
+                        <button ng-click="scopeModel.EditUniversity($event, university.uniID)" 
+                            class="btn btn-success">Edit</button>
+                    </td>
+                </tr>
+                <tr ng-if="university.showDepartments" class="drilldown-body">
+                    <td colspan="3">
+                        <department-grid-directive on-ready="university.onReady" 
+                            on-update="scopeModel.onDepEdited"></department-grid-directive>
+                    </td>
+                </tr>
+                <tr ng-repeat-end></tr>
+            </tbody>
+        </table>
+        <div ng-include="'MyViews/Pagination/PaginationView.html'"></div>
+    </div>
+</div>
+<style>
+    table {
+        border: 1px solid lightgray
+    }
+
+    .drilldown-body {
+        animation: slide-down 0.7s ease;
+    }
+
+    @keyframes slide-down {
+        0% {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style> 

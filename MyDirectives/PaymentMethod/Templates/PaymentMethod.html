@@ -1,0 +1,17 @@
+<div>
+    <div style="display: flex; flex-direction: column; width:100%">
+        <select ng-model="scopeModel.payment" class="form-control" style="width:50%">
+            <option value="" disabled>Select Payment Method</option>
+            <option value="cash">Cash</option>
+            <option value="bank">Bank</option>
+        </select> <br>
+        <div style="display:flex; gap:10px">
+            <input type="number" class="form-control" placeholder="Enter Amount" style="width:50%"
+                ng-model="scopeModel.amount"/>
+            <paymentmethod-cash ng-if="scopeModel.payment=='cash'"
+                on-ready="scopeModel.onCashReady"></paymentmethod-cash>
+            <paymentmethod-bank ng-if="scopeModel.payment=='bank'"
+                on-ready="scopeModel.onBankReady"></paymentmethod-bank>
+        </div>
+    </div>
+</div>

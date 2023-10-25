@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.6/ui-bootstrap-tpls.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <script defer src="./controllers/students_controller.js"></script>
+    <script defer src="./controllers/student_editor_controller.js"></script>
+    <script defer src="./controllers/universities_controller.js"></script>
+    <script defer src="./controllers/university_editor_controller.js"></script>
+    <script defer src="./controllers/departments_controller.js"></script>
+    <script defer src="./controllers/department_editor_controller.js"></script>
+    <script defer src="./models/GenderEnum.js"></script>
+    <script defer src="./models/CurrencyEnum.js"></script>
+    <script defer src="./controllers/directives/gender_directive.js"></script>
+    <script defer src="./controllers/directives/DepGrid_directive.js"></script>
+    <script defer src="./controllers/directives/uniSelector_directive.js"></script>
+    <script defer src="./controllers/directives/depSelector_directive.js"></script>
+    <script defer src="./controllers/directives/money_directive.js"></script>
+    <script defer src="./controllers/directives/currencySelector_directive.js"></script>
+    <script defer src="./controllers/directives/financialAid_directive.js"></script>
+    <script defer src="./controllers/directives/fixedAid_directive.js"></script>
+    <script defer src="./controllers/directives/payment_method.js"></script>
+    <script defer src="./controllers/directives/payment_method_cash.js"></script>
+    <script defer src="./controllers/directives/payment_method_bank.js"></script>
+    <script defer src="./services/StudentWebApiService.js"></script>
+    <script defer src="./services/UniversityWebApiService.js"></script>
+    <script defer src="./services/DepartmentWebApiService.js"></script>
+    <script defer src="./services/WebApiService.js"></script>
+    <script defer src="./services/StudentService.js"></script>
+    <script defer src="./services/UniversityService.js"></script>
+    <script defer src="./services/DepartmentService.js"></script>
+    <script defer src="./services/ModalService.js"></script>
+    <script defer src="./services/PaginationService.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="myApp">
+    <div ng-view>
+    </div>
+
+    <script>
+        var mainApp = angular.module("myApp", ['ngRoute','ui.bootstrap']);
+        mainApp.config(['$routeProvider',
+            function ($routeProvider) {
+                $routeProvider.when('/students', {
+                    templateUrl: '/views/StudentManagementPage.html',
+                    controller: 'students_controller'
+                }).when('/universities', {
+                    templateUrl: '/views/UniversityManagementPage.html',
+                    controller: 'universities_controller'
+                }).when('/departments', {
+                    templateUrl: '/views/DepartmentManagementPage.html',
+                    controller: 'departments_controller'
+                }).when('/money', {
+                  template: '<money-directive></money-directive>'
+                }).otherwise({
+                  redirectTo: '/students'
+                })
+            }]);
+        
+        let buttons=document.querySelectorAll('.listButton')
+
+        buttons.forEach(element => {
+          element.addEventListener('click', function(e){
+            buttons.forEach(button=>{button.classList.remove('selected')})
+            e.target.classList.add('selected')
+          })
+        });
+    </script>
+    <style>
+      .selected{
+        color:white !important;
+        background-color: black !important;
+      }
+    </style>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<select class="form-control" ng-model="selected" 
+        ng-options="item['value'] as item['Description'] for item in items" 
+        ng-disabled="isDisabled">
+    <option value="" disabled>Select Gender</option>
+</select>

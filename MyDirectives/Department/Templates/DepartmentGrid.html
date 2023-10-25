@@ -1,0 +1,24 @@
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th ng-if="scopeModel.pagination">University</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="element in scopeModel.pageElements">
+            <td>{{element.Id}}</td>
+            <td>{{element.Name}}</td>
+            <td ng-if="scopeModel.pagination">{{element.UniversityName}}</td>
+            <td><button ng-click="scopeModel.EditDepartment(element.Id)" class="btn btn-success">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
+<div ng-if="scopeModel.pagination" ng-include="'MyViews/Pagination/PaginationView.html'"></div>
+<style>
+    th {
+        text-align: center !important;
+    }
+</style>

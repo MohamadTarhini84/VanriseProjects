@@ -1,0 +1,13 @@
+<div style="display:flex; justify-content: center;">
+    <button ng-click="scopeModel.ChangePage(scopeModel.currentPage.title-2)" 
+            ng-disabled="scopeModel.currentPage.isFirst" 
+            class="btn" style="border:none !important">Prev</button>
+    <div ng-repeat="page in scopeModel.pageList">
+        <button ng-click="scopeModel.ChangePage(page.title-1)"
+            ng-attr-style="{{page.title==scopeModel.currentPage.title && 'background-color:darkgray; color:white' || '' }}" 
+            class="btn">{{page.title}}</button>
+    </div>
+    <button ng-click="scopeModel.ChangePage(scopeModel.currentPage.title)" 
+            ng-disabled="scopeModel.currentPage.isLast" 
+            class="btn" style="border:none !important">Next</button>
+</div>

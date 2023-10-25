@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("scripts", required: false)
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.3/ui-bootstrap-tpls.min.js"></script>
+
+    <script defer src="../../MyConstants/GenderEnum.js"></script>
+    <script defer src="../../MyConstants/CurrencyEnum.js"></script>
+
+    <script defer src="../../MyViews/Student/students_controller.js"></script>
+    <script defer src="../../MyViews/Student/student_editor_controller.js"></script>
+    <script defer src="../../MyViews/University/universities_controller.js"></script>
+    <script defer src="../../MyViews/University/university_editor_controller.js"></script>
+    <script defer src="../../MyViews/Department/departments_controller.js"></script>
+    <script defer src="../../MyViews/Department/department_editor_controller.js"></script>
+
+    <script defer src="../../MyServices/APIServices/WebApiService.js"></script>
+    <script defer src="../../MyServices/APIServices/StudentWebApiService.js"></script>
+    <script defer src="../../MyServices/APIServices/UniversityWebApiService.js"></script>
+    <script defer src="../../MyServices/APIServices/DepartmentWebApiService.js"></script>
+
+    <script defer src="../../MyServices/UtilityServices/StudentService.js"></script>
+    <script defer src="../../MyServices/UtilityServices/UniversityService.js"></script>
+    <script defer src="../../MyServices/UtilityServices/DepartmentService.js"></script>
+    <script defer src="../../MyServices/ModalService.js"></script>
+    <script defer src="../../MyServices/PromisesService.js"></script>
+    <script defer src="../../MyServices/PaginationService.js"></script>
+
+    <script defer src="../../MyDirectives/Gender/gender_directive.js"></script>
+    <script defer src="../../MyDirectives/Department/DepGrid_directive.js"></script>
+    <script defer src="../../MyDirectives/University/uniSelector_directive.js"></script>
+    <script defer src="../../MyDirectives/Department/depSelector_directive.js"></script>
+    <script defer src="../../MyDirectives/PaymentMethod/currencySelector_directive.js"></script>
+    <script defer src="../../MyDirectives/PaymentMethod/financialAid_directive.js"></script>
+    <script defer src="../../MyDirectives/PaymentMethod/fixedAid_directive.js"></script>
+    <script defer src="../../MyDirectives/PaymentMethod/percentageAid_directive.js"></script>
+    <script defer src="../../MyDirectives/PaymentMethod/payment_method.js"></script>
+    <script defer src="../../MyDirectives/PaymentMethod/payment_method_cash.js"></script>
+    <script defer src="../../MyDirectives/PaymentMethod/payment_method_bank.js"></script>
+</head>
+<body ng-app="myApp">
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("Phase 5/6", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li><a href="#students" class="nav-link">Students</a></li>
+                    <li><a href="#universities" class="nav-link">Universities</a></li>
+                    <li><a href="#departments" class="nav-link">Departments</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+</body>
+</html>

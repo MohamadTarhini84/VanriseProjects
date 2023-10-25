@@ -1,0 +1,23 @@
+﻿<main>
+    <div ng-view>
+    </div>
+
+    <script>
+        var mainApp = angular.module("myApp", ['ngRoute','ui.bootstrap']);
+        mainApp.config(['$routeProvider',
+            function ($routeProvider) {
+                $routeProvider.when('/students', {
+                    templateUrl: '../../MyViews/Student/StudentManagementPage.html',
+                    controller: 'students_controller'
+                }).when('/universities', {
+                    templateUrl: '../../MyViews/University/UniversityManagementPage.html',
+                    controller: 'universities_controller'
+                }).when('/departments', {
+                    templateUrl: '../../MyViews/Department/DepartmentManagementPage.html',
+                    controller: 'departments_controller'
+                }).otherwise({
+                    redirectTo: '/students'
+                })
+            }]);
+    </script>
+</main>

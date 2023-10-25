@@ -1,0 +1,30 @@
+<div class="row" style="margin:30px">
+    <div class="col-md-3 col-sm-2"></div>
+    <div class="col-md-6 col-sm-8">
+        <div style="display:flex; justify-content:space-between; gap:20px; margin-bottom: 20px;">
+            <input type="text" placeholder="Search by Name" ng-model="search_input" class="form-control" style="display: inline; width: 60%;" />
+            <div>
+                <button ng-click="scopeModel.loadData()" type="button" class="btn btn-primary">Search</button>
+                <button data-open-modal ng-click="scopeModel.AddStudent()" type="button" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th ng-repeat="item in scopeModel.items">{{item}}</th>
+                </tr>
+            </thead>
+            <tbody id="students_tbody">
+                <tr ng-repeat="element in scopeModel.pageElements">
+                    <td>{{element.Id}}</td>
+                    <td>{{element.Name}}</td>
+                    <td>{{element.Gender==1?"Male":"Female"}}</td>
+                    <td>{{element.University}}</td>
+                    <td>{{element.Department}}</td>
+                    <td><button ng-click="scopeModel.EditStudent(element.Id)" class="btn btn-success">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-include="'MyViews/Pagination/PaginationView.html'"></div>
+    </div>
+</div>
