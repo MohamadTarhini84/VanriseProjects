@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("scripts", required: false)
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.3/ui-bootstrap-tpls.min.js"></script>
+
+    <script defer src="../../MyConstants/FrequencyEnum.js"></script>
+
+    <script defer src="../../MyViews/Employee/employees_controller.js"></script>
+    <script defer src="../../MyViews/Employee/employee_editor_controller.js"></script>
+
+    <script defer src="../../MyServices/APIServices/WebApiService.js"></script>
+    <script defer src="../../MyServices/APIServices/EmployeeWebApiService.js"></script>
+    <script defer src="../../MyServices/UtilityServices/EmployeeService.js"></script>
+    <script defer src="../../MyServices/ModalService.js"></script>
+    <script defer src="../../MyServices/PromisesService.js"></script>
+    <script defer src="../../MyServices/PaginationService.js"></script>
+
+    <script defer src="../../MyDirectives/hobbyDetail_directive.js"></script>
+    <script defer src="../../MyDirectives/hobbyGrid_directive.js"></script>
+    <script defer src="../../MyDirectives/hobby_selector.js"></script>
+    <script defer src="../../MyDirectives/freqType_selector.js"></script>
+</head>
+<body ng-app="myApp">
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("Phase 10", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li><a href="#employees" class="nav-link">Employees</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+</body>
+</html>

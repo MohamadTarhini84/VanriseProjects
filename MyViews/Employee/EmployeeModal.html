@@ -1,0 +1,45 @@
+﻿<form style="width:500px;height:auto; padding-top:50px" class="container border text-primary" 
+      name="employeeForm" novalidate>
+    <button class="close close_btn" aria-label="Close" ng-click="close()">
+        <span>&times;</span>
+      </button>
+    <div class="modal_body">
+        <div style="display: flex; flex-direction:column; gap:20px">
+            <div>
+                <label>Name: </label> <br>
+                <input type="text" class="form-control" placeholder="Enter Name" name="name"
+                       ng-model="scopeModel.item.Name" ng-required="true" />
+                <div ng-show="employeeForm.name.$touched && employeeForm.name.$invalid">
+                    <small class="text-danger">Make sure to enter an employee name.</small>
+                </div>
+            </div>
+            <div>
+                <hobbies-grid on-ready="scopeModel.onHobbyGridReady"></hobbies-grid>
+            </div>
+            <div>
+                <hobbydetail-grid on-ready="scopeModel.onDetailsGridReady"></hobbydetail-grid>
+            </div>
+        </div>
+        <div style="display:flex; justify-content: end; margin-right: 50px;">
+            <input type="submit" value="Save" class="m-4 btn btn-primary border" 
+                   ng-click="scopeModel.save()" ng-disabled="employeeForm.$invalid"/>
+        </div>
+    </div>
+</form>
+
+<style>
+    .modal_body{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        height:100%;
+        text-align: left;
+    }
+
+    .close_btn{
+        position: absolute;
+        top:20px;
+        right:20px;
+    }
+</style>

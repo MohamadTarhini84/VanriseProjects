@@ -1,0 +1,31 @@
+<button style="width:40px; margin:10px 10px 10px 0px" class="btn btn-success"
+        ng-click="scopeModel.DetailsLogic.AddDetail()"
+        ng-disabled="scopeModel.DetailsLogic.detailsButtonDisabled">
+    +
+</button>
+<table class="table table-striped table-bordered text-center">
+    <thead>
+        <tr>
+            <th>Hobby</th>
+            <th>Frequency</th>
+            <th>Frequency Type</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="element in scopeModel.HobbyDetails">
+            <td><hobby-selector on-ready="element.onHobbySelectorReady"></hobby-selector></td>
+            <td>
+                <input type="number" ng-model="element.Frequency" class="form-control"
+                       style="width:100px" placeholder="Freq" ng-required="true"/>
+            </td>
+            <td><hobby-frequencytype-selector on-ready="element.onFreqSelectorReady"></hobby-frequencytype-selector></td>
+            <td><button ng-click="scopeModel.DetailsLogic.RemoveDetail(element)" class="btn btn-danger">x</button></td>
+        </tr>
+    </tbody>
+</table>
+<style>
+    th {
+        text-align: center !important;
+    }
+</style>

@@ -1,0 +1,5 @@
+<select class="form-control" ng-model="scopeModel.selected.ID" ng-disabled="isDisabled" ng-required="true">
+    <option value="" disabled>Select Hobby</option>
+    <option ng-repeat="item in scopeModel.Hobbies" value="{{item['ID']}}"
+            ng-show="scopeModel.isShowing(item['isSelected'], item['ID'])">{{item['Name']}}</option>
+</select>

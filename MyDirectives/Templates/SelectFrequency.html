@@ -1,0 +1,5 @@
+<select class="form-control" ng-model="Hobby.FreqType" 
+        ng-options="item['value'] as item['Description'] for item in items" 
+        ng-disabled="isDisabled" ng-required="true">
+    <option value="" disabled>Frequency Type</option>
+</select>

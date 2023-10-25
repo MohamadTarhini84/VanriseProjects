@@ -1,0 +1,27 @@
+<div class="row" style="margin:30px">
+    <div class="col-md-3 col-sm-2"></div>
+    <div class="col-md-6 col-sm-8">
+        <div style="display:flex; justify-content:center; gap:20px; margin-bottom: 20px;">
+            <input type="text" placeholder="Search by Name" ng-model="scopeModel.search_input" class="form-control" style="display: inline; width: 60%;" />
+            <button ng-click="scopeModel.loadData()" type="button" class="btn btn-primary">Search</button>
+            <button data-open-modal ng-click="scopeModel.AddEmployee()" type="button" class="btn btn-primary">Add</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="element in scopeModel.pageElements">
+                    <td>{{element.ID}}</td>
+                    <td>{{element.Name}}</td>
+                    <td><button ng-click="scopeModel.EditEmployee(element.ID)" class="btn btn-success">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-include="'MyViews/Pagination/PaginationView.html'"></div>
+    </div>
+</div>
